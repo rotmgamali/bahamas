@@ -107,28 +107,50 @@ Message:
 ${body.message}
     `.trim();
 
-    // Configure SMTP transport
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || "smtp.gmail.com",
-      port: parseInt(process.env.SMTP_PORT || "587"),
-      secure: process.env.SMTP_SECURE === "true",
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
+    // Build mailto fallback URL for use if SMTP is not configured or fails
+    const subject = `New Event Inquiry from ${body.name}${body.company ? ` (${body.company})` : ""} - ${eventTypeLabel}`;
+    const mailtoUrl = `mailto:andrew@web4guru.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(textContent)}`;
 
-    // Send email to the business
-    await transporter.sendMail({
-      from: process.env.SMTP_FROM || process.env.SMTP_USER,
-      to: "andrew@web4guru.com",
-      replyTo: body.email,
-      subject: `New Event Inquiry from ${body.name}${body.company ? ` (${body.company})` : ""} - ${eventTypeLabel}`,
-      text: textContent,
-      html: htmlContent,
-    });
+    // Check if SMTP credentials are configured
+    if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      return NextResponse.json({
+        success: false,
+        fallback: true,
+        mailtoUrl,
+        error: "Email service is not configured yet. Please use the link below to send your inquiry directly.",
+      });
+    }
 
-    return NextResponse.json({ success: true });
+    try {
+      const transporter = nodemailer.createTransport({
+        host: process.env.SMTP_HOST || "smtp.gmail.com",
+        port: parseInt(process.env.SMTP_PORT || "587"),
+        secure: process.env.SMTP_SECURE === "true",
+        auth: {
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASS,
+        },
+      });
+
+      await transporter.sendMail({
+        from: process.env.SMTP_FROM || process.env.SMTP_USER,
+        to: "andrew@web4guru.com",
+        replyTo: body.email,
+        subject,
+        text: textContent,
+        html: htmlContent,
+      });
+
+      return NextResponse.json({ success: true });
+    } catch (smtpError) {
+      console.error("SMTP send failed, returning mailto fallback:", smtpError);
+      return NextResponse.json({
+        success: false,
+        fallback: true,
+        mailtoUrl,
+        error: "Unable to send automatically. Please use the link below to send your inquiry via email.",
+      });
+    }
   } catch (error) {
     console.error("Contact form error:", error);
     return NextResponse.json(

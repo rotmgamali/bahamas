@@ -27,9 +27,10 @@ const initialFormData: FormData = {
 export default function Contact() {
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [status, setStatus] = useState<
-    "idle" | "submitting" | "success" | "error"
+    "idle" | "submitting" | "success" | "error" | "fallback"
   >("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [mailtoUrl, setMailtoUrl] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -43,6 +44,7 @@ export default function Contact() {
     e.preventDefault();
     setStatus("submitting");
     setErrorMessage("");
+    setMailtoUrl("");
 
     try {
       const res = await fetch("/api/contact", {
@@ -51,8 +53,16 @@ export default function Contact() {
         body: JSON.stringify(formData),
       });
 
+      const data = await res.json();
+
+      if (data.fallback) {
+        setStatus("fallback");
+        setErrorMessage(data.error);
+        setMailtoUrl(data.mailtoUrl);
+        return;
+      }
+
       if (!res.ok) {
-        const data = await res.json();
         throw new Error(data.error || "Something went wrong");
       }
 
@@ -124,6 +134,42 @@ export default function Contact() {
                   className="rounded-full bg-ocean-600 px-6 py-3 text-sm font-semibold text-white hover:bg-ocean-700 transition-colors"
                 >
                   Send Another Inquiry
+                </button>
+              </div>
+            ) : status === "fallback" ? (
+              <div className="text-center py-8">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gold-400/10">
+                  <svg
+                    className="h-8 w-8 text-gold-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="font-display text-2xl font-bold text-navy-950 mb-2">
+                  Almost There!
+                </h3>
+                <p className="text-navy-950/60 mb-6">
+                  {errorMessage}
+                </p>
+                <a
+                  href={mailtoUrl}
+                  className="inline-block rounded-full bg-ocean-600 px-6 py-3 text-sm font-semibold text-white hover:bg-ocean-700 transition-colors"
+                >
+                  Open Email Client
+                </a>
+                <button
+                  onClick={() => setStatus("idle")}
+                  className="block mx-auto mt-3 text-sm text-navy-950/50 hover:text-navy-950/70 transition-colors"
+                >
+                  Go Back
                 </button>
               </div>
             ) : (
