@@ -124,10 +124,10 @@ export default function CorporateEvents() {
         {/* Bottom image strip */}
         <div className="mt-20 grid grid-cols-4 gap-4 rounded-2xl overflow-hidden">
           {[
-            "/images/properties/1000214128.jpg",
-            "/images/properties/1000214148.jpg",
-            "/images/properties/1000214170.jpg",
-            "/images/properties/1000214160.jpg",
+            "/images/properties/bedroom-luxury.jpg",
+            "/images/properties/kitchen-bar.jpg",
+            "/images/properties/bedroom-blue.jpg",
+            "/images/properties/outdoor-palms.jpg",
           ].map((src, i) => (
             <div key={src} className="relative h-32 sm:h-48">
               <Image

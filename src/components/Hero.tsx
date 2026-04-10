@@ -5,7 +5,7 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background image */}
       <Image
-        src="/images/properties/1000214160.jpg"
+        src="/images/properties/outdoor-palms.jpg"
         alt="SerenitySpaces Bahamas Villa"
         fill
         className="object-cover"

@@ -1,20 +1,26 @@
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import Hero from "@/components/sections/Hero";
-import About from "@/components/sections/About";
-import Venues from "@/components/sections/Venues";
-import Packages from "@/components/sections/Packages";
-import Contact from "@/components/sections/Contact";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Properties from "@/components/Properties";
+import CorporateEvents from "@/components/CorporateEvents";
+import Amenities from "@/components/Amenities";
+import Testimonial from "@/components/Testimonial";
+import Location from "@/components/Location";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <main className="flex-1">
+      <Navbar />
+      <main>
         <Hero />
         <About />
-        <Venues />
-        <Packages />
+        <Properties />
+        <CorporateEvents />
+        <Amenities />
+        <Testimonial />
+        <Location />
         <Contact />
       </main>
       <Footer />

@@ -15,7 +15,7 @@ interface ContactFormData {
 const EVENT_TYPE_LABELS: Record<string, string> = {
   "corporate-retreat": "Corporate Retreat",
   "team-building": "Team Building",
-  "conference": "Conference / Meeting",
+  conference: "Conference / Meeting",
   "incentive-trip": "Incentive Trip",
   "product-launch": "Product Launch",
   "executive-offsite": "Executive Offsite",
@@ -132,7 +132,10 @@ ${body.message}
   } catch (error) {
     console.error("Contact form error:", error);
     return NextResponse.json(
-      { error: "Failed to send your message. Please email us directly at andrew@web4guru.com." },
+      {
+        error:
+          "Failed to send your message. Please email us directly at andrew@web4guru.com.",
+      },
       { status: 500 }
     );
   }

@@ -49,7 +49,7 @@ export default function About() {
             <div className="space-y-4">
               <div className="relative h-48 rounded-2xl overflow-hidden">
                 <Image
-                  src="/images/properties/1000214128.jpg"
+                  src="/images/properties/bedroom-luxury.jpg"
                   alt="Luxury master bedroom"
                   fill
                   className="object-cover"
@@ -57,7 +57,7 @@ export default function About() {
               </div>
               <div className="relative h-64 rounded-2xl overflow-hidden">
                 <Image
-                  src="/images/properties/1000214130.jpg"
+                  src="/images/properties/bathroom-jacuzzi.jpg"
                   alt="Spa-style jacuzzi bathroom"
                   fill
                   className="object-cover"
@@ -67,7 +67,7 @@ export default function About() {
             <div className="space-y-4 pt-8">
               <div className="relative h-64 rounded-2xl overflow-hidden">
                 <Image
-                  src="/images/properties/1000214148.jpg"
+                  src="/images/properties/kitchen-bar.jpg"
                   alt="Open-plan kitchen and bar"
                   fill
                   className="object-cover"
@@ -75,7 +75,7 @@ export default function About() {
               </div>
               <div className="relative h-48 rounded-2xl overflow-hidden">
                 <Image
-                  src="/images/properties/1000214136.jpg"
+                  src="/images/properties/living-room-main.jpg"
                   alt="Spacious living area"
                   fill
                   className="object-cover"
