@@ -5,8 +5,9 @@ import Destination from "@/components/Destination";
 import FeaturedProperty from "@/components/FeaturedProperty";
 import Properties from "@/components/Properties";
 import CorporateEvents from "@/components/CorporateEvents";
-import Amenities from "@/components/Amenities";
 import WhyFreeport from "@/components/WhyFreeport";
+import Amenities from "@/components/Amenities";
+import FAQ from "@/components/FAQ";
 import Testimonial from "@/components/Testimonial";
 import Location from "@/components/Location";
 import Contact from "@/components/Contact";
@@ -25,6 +26,7 @@ export default function Home() {
         <CorporateEvents />
         <WhyFreeport />
         <Amenities />
+        <FAQ />
         <Testimonial />
         <Location />
         <Contact />

@@ -32,9 +32,10 @@ export default function Hero() {
         </h1>
 
         <p className="mx-auto max-w-2xl text-lg sm:text-xl text-white/80 mb-10 leading-relaxed">
-          Exclusive beachside villas in Freeport, Grand Bahama — just 35
-          minutes from Fort Lauderdale. Private venues, white sand beaches, and
-          special corporate group rates your CFO will love.
+          A private 6-villa complex in Freeport, Grand Bahama — just 35
+          minutes from Fort Lauderdale. Book individual villas from $150/night
+          or the entire complex from $650/night. Steps from Coral Beach with
+          pool, full kitchen, and long-stay corporate discounts.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -48,7 +49,7 @@ export default function Hero() {
             href="#featured-property"
             className="rounded-full border-2 border-white/40 px-10 py-4 text-base font-semibold text-white hover:border-gold-400 hover:text-gold-400 transition-all"
           >
-            View Our Flagship Villa
+            Explore the Villa Complex
           </a>
         </div>
 
@@ -58,7 +59,7 @@ export default function Hero() {
             <svg className="h-5 w-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3l14 9-14 9V3z" />
             </svg>
-            35-min Direct Flights from FL
+            35-Min Flights from Florida
           </div>
           <div className="flex items-center gap-2">
             <svg className="h-5 w-5 text-gold-400" fill="currentColor" viewBox="0 0 20 20">
