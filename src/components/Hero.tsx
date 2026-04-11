@@ -3,10 +3,10 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image */}
+      {/* Background — aerial Bahamas turquoise water (Unsplash) */}
       <Image
-        src="/images/properties/outdoor-palms.jpg"
-        alt="SerenitySpaces Bahamas Villa"
+        src="https://images.unsplash.com/photo-1548574505-5e239809ee19?w=1920&q=80"
+        alt="Aerial view of turquoise waters and white sand in the Bahamas"
         fill
         className="object-cover"
         priority
@@ -14,27 +14,27 @@ export default function Hero() {
       />
 
       {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-950/70 via-navy-950/40 to-navy-950/80" />
-      <div className="absolute inset-0 bg-gradient-to-r from-ocean-800/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-950/60 via-navy-950/30 to-navy-950/70" />
+      <div className="absolute inset-0 bg-gradient-to-r from-ocean-800/20 to-transparent" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
         <p className="mb-6 text-sm font-semibold tracking-[0.3em] uppercase text-gold-400">
-          Freeport &middot; Grand Bahama Island
+          Freeport &middot; Grand Bahama Island &middot; The Bahamas
         </p>
 
         <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-tight mb-6">
-          Your Exclusive
+          Host Your Next
           <br />
-          <span className="text-gold-400">Corporate Retreat</span>
+          <span className="text-gold-400">Corporate Event</span>
           <br />
           in Paradise
         </h1>
 
         <p className="mx-auto max-w-2xl text-lg sm:text-xl text-white/80 mb-10 leading-relaxed">
-          Premium beachside villas in the Bahamas, purpose-built for corporate
-          events, team retreats, and executive getaways. Exclusive rates for
-          business groups.
+          Exclusive beachside villas in Freeport, Grand Bahama — just 35
+          minutes from Fort Lauderdale. Private venues, white sand beaches, and
+          special corporate group rates your CFO will love.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -45,20 +45,20 @@ export default function Hero() {
             Plan Your Event
           </a>
           <a
-            href="#properties"
+            href="#featured-property"
             className="rounded-full border-2 border-white/40 px-10 py-4 text-base font-semibold text-white hover:border-gold-400 hover:text-gold-400 transition-all"
           >
-            View Properties
+            View Our Flagship Villa
           </a>
         </div>
 
         {/* Trust indicators */}
         <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-white/60 text-sm">
           <div className="flex items-center gap-2">
-            <svg className="h-5 w-5 text-gold-400" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            <svg className="h-5 w-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3l14 9-14 9V3z" />
             </svg>
-            3 Exclusive Villas
+            35-min Direct Flights from FL
           </div>
           <div className="flex items-center gap-2">
             <svg className="h-5 w-5 text-gold-400" fill="currentColor" viewBox="0 0 20 20">
@@ -68,9 +68,9 @@ export default function Hero() {
           </div>
           <div className="flex items-center gap-2">
             <svg className="h-5 w-5 text-gold-400" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+              <path fillRule="evenodd" d="M5 2a2 2 0 00-2 2v14l3.5-2 3.5 2 3.5-2 3.5 2V4a2 2 0 00-2-2H5zm4.707 3.707a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L8.414 9H10a3 3 0 013 3v1a1 1 0 102 0v-1a5 5 0 00-5-5H8.414l1.293-1.293z" clipRule="evenodd" />
             </svg>
-            Corporate Discounts
+            Corporate Group Discounts
           </div>
         </div>
       </div>

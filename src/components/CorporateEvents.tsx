@@ -62,12 +62,19 @@ export default function CorporateEvents() {
               <br />
               Corporate Event
             </h2>
-            <p className="text-lg text-white/70 leading-relaxed mb-8">
+            <p className="text-lg text-white/70 leading-relaxed mb-4">
               Why settle for another hotel ballroom when your team could be
-              strategizing poolside in the Bahamas? Our exclusive villa
-              compound in Freeport provides the privacy, space, and island
-              charm that transforms ordinary corporate events into
-              extraordinary experiences.
+              working from a private villa 5 minutes from the beach in the
+              Bahamas? Moringa Villa and our supporting properties give you
+              the privacy, dedicated workspace, and island energy that turns
+              ordinary corporate events into the trip everyone talks about.
+            </p>
+            <p className="text-lg text-white/70 leading-relaxed mb-8">
+              Our properties are designed for <strong className="text-white">long-term corporate stays</strong> —
+              full kitchens, washer/dryer, WiFi, workspace, and self check-in
+              mean your team can settle in for a week or a month without
+              missing a beat. No hotel front-desk friction. Just walk in, set
+              up, and get to work.
             </p>
 
             {/* Pricing callout */}
