@@ -488,19 +488,19 @@ export default function FeaturedProperty() {
                   Extended Stay Discounts
                 </p>
                 <div className="grid grid-cols-2 gap-2 text-sm">
-                  <div className="text-white/70">7+ nights</div>
+                  <div className="text-white/70">Up to 7 nights</div>
                   <div className="text-white font-semibold text-right">
                     10% off
                   </div>
-                  <div className="text-white/70">14+ nights</div>
+                  <div className="text-white/70">Up to 14 nights</div>
                   <div className="text-white font-semibold text-right">
                     15% off
                   </div>
-                  <div className="text-white/70">30+ nights</div>
+                  <div className="text-white/70">Up to 30 nights</div>
                   <div className="text-white font-semibold text-right">
                     20% off
                   </div>
-                  <div className="text-white/70">30+ nights</div>
+                  <div className="text-white/70">Over 30 nights</div>
                   <div className="text-white font-semibold text-right">
                     25% off
                   </div>
