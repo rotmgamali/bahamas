@@ -75,8 +75,8 @@ export default function About() {
               </div>
               <div className="relative h-64 rounded-2xl overflow-hidden shadow-md">
                 <Image
-                  src="/images/properties/bathroom-jacuzzi.jpg"
-                  alt="Spa-style jacuzzi bathroom at SerenitySpaces"
+                  src="/images/firmconnect/piano-room-CPcdKV-I.png"
+                  alt="Pina Villa with baby grand piano at SerenitySpaces"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 50vw, 25vw"
@@ -86,8 +86,8 @@ export default function About() {
             <div className="space-y-4 pt-8">
               <div className="relative h-64 rounded-2xl overflow-hidden shadow-md">
                 <Image
-                  src="/images/properties/bedroom-luxury.jpg"
-                  alt="Luxury master bedroom in one of the SerenitySpaces villas"
+                  src="/images/firmconnect/living-space-C-RDnF3U.png"
+                  alt="Lime Villa open-concept living space with kitchen"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 50vw, 25vw"

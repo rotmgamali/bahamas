@@ -7,24 +7,23 @@ import { useState, useCallback } from "react";
 /* ------------------------------------------------------------------ */
 
 const HERO_GALLERY = [
-  { src: "/images/properties/villa-collage.jpg", label: "The SerenitySpaces Complex" },
-  { src: "/images/properties/outdoor-palms.jpg", label: "Tropical Grounds" },
-  { src: "/images/properties/living-room-main.jpg", label: "Lime Villa - Gathering Space" },
-  { src: "/images/properties/bedroom-luxury.jpg", label: "Agave Villa - Master Suite" },
-  { src: "/images/properties/kitchen-dining.jpg", label: "Lime Villa - Chef's Kitchen" },
-  { src: "/images/properties/bathroom-jacuzzi.jpg", label: "Agave Villa - Rainfall Bath" },
-  { src: "/images/properties/living-room-recliners.jpg", label: "Pina Villa - Living Area" },
-  { src: "/images/properties/bedroom-gray.jpg", label: "Coconut Villa - Bedroom" },
-  { src: "/images/properties/kitchen-bar.jpg", label: "Kitchen Bar Seating" },
-  { src: "/images/properties/balcony-plants.jpg", label: "Private Patio" },
-  { src: "/images/properties/living-room-wide.jpg", label: "Spacious Interiors" },
-  { src: "/images/properties/bathroom-teal.jpg", label: "Coconut Villa - En-Suite" },
-  { src: "/images/properties/bedroom-blue.jpg", label: "Moringa Villa" },
-  { src: "/images/properties/kitchen-counter.jpg", label: "Full Kitchen Counter" },
-  { src: "/images/properties/kitchen-appliances.jpg", label: "Modern Appliances" },
-  { src: "/images/properties/hallway-decor.jpg", label: "Interior Details" },
-  { src: "/images/properties/staircase.jpg", label: "Architectural Details" },
-  { src: "/images/properties/living-room-2.jpg", label: "Lounge Space" },
+  { src: "/images/firmconnect/Aeerial__from_East_IMG-20240225-WA0023-CU5chfyA.jpg", label: "Aerial View of SerenitySpaces" },
+  { src: "/images/firmconnect/gazebo-beach-DrJ5sQb-.jpg", label: "Coral Beach — 5-Min Walk" },
+  { src: "/images/firmconnect/Screenshot_2025-04-25_191850-IN-SIeFq.png", label: "Aerial View of All Four Villas" },
+  { src: "/images/firmconnect/living-room-ij5ge_dN.png", label: "Agave Villa — Studio Layout" },
+  { src: "/images/firmconnect/piano-room-CPcdKV-I.png", label: "Pina Villa — Baby Grand Piano" },
+  { src: "/images/firmconnect/living-space-C-RDnF3U.png", label: "Lime Villa — Open Concept Kitchen" },
+  { src: "/images/firmconnect/living-fireplace-TueFVDhv.png", label: "Lime Villa — Decorative Fireplace" },
+  { src: "/images/firmconnect/living-room-Gv6aYhRk.png", label: "Coconut Villa — Living Area" },
+  { src: "/images/firmconnect/kitchenette-NsUglWLp.png", label: "Coconut Villa — Kitchenette" },
+  { src: "/images/firmconnect/living-space-BwEuyzNu.png", label: "Pina Villa — Cathedral Ceiling" },
+  { src: "/images/firmconnect/second-view-BScXCxZ0.png", label: "Pina Villa — Island Decor" },
+  { src: "/images/firmconnect/bedroom-BKwlCmeY.png", label: "Agave Villa — Living Space" },
+  { src: "/images/firmconnect/Screenshot_2025-04-25_185838-DjYBN4k8.png", label: "Garden BBQ Area" },
+  { src: "/images/firmconnect/Screenshot_2025-04-25_185916-CprJPXFh.png", label: "Lime Villa — Kitchen & Floor Plan" },
+  { src: "/images/firmconnect/Screenshot_2025-04-25_185927-CDlwObrC.png", label: "Lime Villa — Dining Area" },
+  { src: "/images/firmconnect/nature-boardwalk-inmdggcd.jpg", label: "Nearby Nature Boardwalk" },
+  { src: "/images/firmconnect/marina-view-B5K9N6xH.jpg", label: "Freeport Marina" },
 ];
 
 interface Villa {
@@ -51,7 +50,7 @@ const VILLAS: Villa[] = [
       "Ensuite rainfall shower",
       "Private patio",
     ],
-    image: "/images/properties/bedroom-luxury.jpg",
+    image: "/images/firmconnect/living-room-ij5ge_dN.png",
     accent: "ocean",
     badge: "Most Popular",
   },
@@ -67,7 +66,7 @@ const VILLAS: Villa[] = [
       "Kitchenette with essentials",
       "Lush garden views",
     ],
-    image: "/images/properties/bedroom-gray.jpg",
+    image: "/images/firmconnect/living-room-Gv6aYhRk.png",
     accent: "ocean",
   },
   {
@@ -82,7 +81,7 @@ const VILLAS: Villa[] = [
       "Living room / sleeping area",
       "Central gathering hub",
     ],
-    image: "/images/properties/kitchen-dining.jpg",
+    image: "/images/firmconnect/living-space-C-RDnF3U.png",
     accent: "ocean",
     badge: "Central Hub",
   },
@@ -98,7 +97,7 @@ const VILLAS: Villa[] = [
       "Open-concept studio layout",
       "Kitchenette included",
     ],
-    image: "/images/properties/living-room-recliners.jpg",
+    image: "/images/firmconnect/piano-room-CPcdKV-I.png",
     accent: "ocean",
   },
 ];
@@ -107,14 +106,14 @@ const BUDGET_VILLAS = [
   {
     name: "Moringa Villa",
     description:
-      "A private budget-friendly room on the north side of the property. Pool access available with an upcharge. Ideal for additional guests or support staff accompanying your group.",
-    image: "/images/properties/bedroom-blue.jpg",
+      "A private budget-friendly villa on the north side of the property featuring 3 bedrooms, a king master suite, jacuzzi tub, full granite kitchen, and reclining leather sofas. Pool access available with an upcharge.",
+    image: "/images/properties/bedroom-luxury.jpg",
   },
   {
     name: "Papaya Villa",
     description:
-      "A comfortable budget option on the north side. Pool access available with an upcharge. Perfect for extending your group capacity beyond the main complex.",
-    image: "/images/properties/living-room-2.jpg",
+      "A comfortable separate villa on the north side with spacious living areas, modern kitchen, outdoor yard with palm trees, and air conditioning throughout. Pool access available with an upcharge.",
+    image: "/images/properties/kitchen-bar.jpg",
   },
 ];
 

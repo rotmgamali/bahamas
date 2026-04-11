@@ -131,10 +131,10 @@ export default function CorporateEvents() {
         {/* Bottom image strip */}
         <div className="mt-20 grid grid-cols-4 gap-4 rounded-2xl overflow-hidden">
           {[
-            "/images/properties/bedroom-luxury.jpg",
-            "/images/properties/kitchen-bar.jpg",
-            "/images/properties/bedroom-blue.jpg",
-            "/images/properties/outdoor-palms.jpg",
+            "/images/firmconnect/Aeerial__from_East_IMG-20240225-WA0023-CU5chfyA.jpg",
+            "/images/firmconnect/living-space-C-RDnF3U.png",
+            "/images/firmconnect/piano-room-CPcdKV-I.png",
+            "/images/firmconnect/gazebo-beach-DrJ5sQb-.jpg",
           ].map((src, i) => (
             <div key={src} className="relative h-32 sm:h-48">
               <Image

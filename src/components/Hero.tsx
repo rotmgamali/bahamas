@@ -13,12 +13,12 @@ export default function Hero() {
         quality={85}
       />
 
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-950/60 via-navy-950/30 to-navy-950/70" />
+      {/* Gradient overlays — extra dark at top so navbar text stays readable */}
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-950/80 via-navy-950/30 to-navy-950/70" />
       <div className="absolute inset-0 bg-gradient-to-r from-ocean-800/20 to-transparent" />
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
+      {/* Content — pt-24 pushes below the fixed navbar */}
+      <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center pt-24">
         <p className="mb-6 text-sm font-semibold tracking-[0.3em] uppercase text-gold-400">
           Freeport &middot; Grand Bahama Island &middot; The Bahamas
         </p>
