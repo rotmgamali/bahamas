@@ -32,7 +32,7 @@ export default function Hero() {
         </h1>
 
         <p className="mx-auto max-w-2xl text-lg sm:text-xl text-white/80 mb-10 leading-relaxed">
-          A private 6-villa complex in Freeport, Grand Bahama — just 35
+          A private 4-villa complex in Freeport, Grand Bahama — just 35
           minutes from Fort Lauderdale. Book individual villas from $150/night
           or the entire complex from $650/night. Steps from Coral Beach with
           pool, full kitchen, and long-stay corporate discounts.

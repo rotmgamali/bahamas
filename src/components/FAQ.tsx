@@ -6,7 +6,7 @@ const FAQ_ITEMS = [
   {
     question: "How many guests can SerenitySpaces accommodate?",
     answer:
-      "When rented as a complete property, SerenitySpaces comfortably accommodates up to 14 guests across our four main villas (Agave, Coconut, Lime, and Pi\u00f1a). With our two additional budget villas (Moringa and Papaya), total capacity extends to approximately 19 guests. Each villa has different capacity \u2014 Agave and Coconut sleep up to 4, Lime hosts 3, and Pi\u00f1a is perfect for 2.",
+      "When rented as a complete property, SerenitySpaces comfortably accommodates up to 14 guests across our four interconnected villas (Agave, Coconut, Lime, and Pi\u00f1a). Each villa has different capacity \u2014 Agave and Coconut sleep up to 4, Lime hosts 3, and Pi\u00f1a is perfect for 2. For larger groups, we offer overflow options on request: two additional rooms (Moringa and Papaya) on the north side of the property, plus a separate 3-bedroom partner villa nearby in Freeport.",
   },
   {
     question: "What are the rates and how does pricing work?",

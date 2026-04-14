@@ -1,8 +1,8 @@
 import Image from "next/image";
 
 const stats = [
-  { value: "6", label: "Luxury Villas" },
-  { value: "19", label: "Guest Capacity" },
+  { value: "4", label: "Interconnected Villas" },
+  { value: "14", label: "Guest Capacity" },
   { value: "5 Min", label: "To Coral Beach" },
 ];
 
@@ -31,12 +31,12 @@ export default function About() {
 
             <p className="text-lg text-navy-950/70 leading-relaxed mb-6">
               Inspired by the tropical surroundings of Freeport&apos;s Sea Breeze
-              area, we set out to create a collection of six distinct yet
-              harmonious living spaces — Agave, Coconut, Lime, Pi&ntilde;a,
-              Moringa, and Papaya — that blend modern comfort with authentic
-              island character. Today, SerenitySpaces is a villa complex designed
-              for groups who value personal service, genuine connection, and the
-              kind of atmosphere no hotel can replicate.
+              area, we set out to create a collection of four distinct yet
+              harmonious living spaces — Agave, Coconut, Lime, and Pi&ntilde;a —
+              that blend modern comfort with authentic island character. Today,
+              SerenitySpaces is a villa complex designed for groups who value
+              personal service, genuine connection, and the kind of atmosphere
+              no hotel can replicate.
             </p>
 
             <p className="text-lg text-navy-950/70 leading-relaxed mb-8">

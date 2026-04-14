@@ -102,24 +102,9 @@ const VILLAS: Villa[] = [
   },
 ];
 
-const BUDGET_VILLAS = [
-  {
-    name: "Moringa Villa",
-    description:
-      "A private budget-friendly villa on the north side of the property featuring 3 bedrooms, a king master suite, jacuzzi tub, full granite kitchen, and reclining leather sofas. Pool access available with an upcharge.",
-    image: "/images/properties/bedroom-luxury.jpg",
-  },
-  {
-    name: "Papaya Villa",
-    description:
-      "A comfortable separate villa on the north side with spacious living areas, modern kitchen, outdoor yard with palm trees, and air conditioning throughout. Pool access available with an upcharge.",
-    image: "/images/properties/kitchen-bar.jpg",
-  },
-];
-
 const COMPLEX_STATS = [
-  { value: "6", label: "Luxury & Budget Villas" },
-  { value: "14-19", label: "Guest Capacity" },
+  { value: "4", label: "Interconnected Villas" },
+  { value: "14", label: "Guest Capacity" },
   { value: "9", label: "Beds Across Complex" },
   { value: "4", label: "Full Bathrooms" },
 ];
@@ -187,11 +172,11 @@ export default function FeaturedProperty() {
             The SerenitySpaces Villa Complex
           </h2>
           <p className="mx-auto max-w-3xl text-lg leading-relaxed text-navy-950/70">
-            Four interconnected luxury villas and two budget-friendly suites
-            nestled in the Sea Breeze area of Freeport, Grand Bahama Island.
-            Book individually for intimate getaways or reserve the entire
-            complex for corporate retreats, family reunions, and group
-            celebrations accommodating up to 19 guests.
+            Four interconnected luxury villas nestled in the Sea Breeze area of
+            Freeport, Grand Bahama Island. Book individually for intimate
+            getaways or reserve the entire complex for corporate retreats,
+            team offsites, and group celebrations accommodating up to 14
+            guests. Additional overflow capacity available on request.
           </p>
         </div>
 
@@ -586,56 +571,6 @@ export default function FeaturedProperty() {
         </div>
 
         {/* -------------------------------------------------------- */}
-        {/*  Budget Villas                                           */}
-        {/* -------------------------------------------------------- */}
-        <div className="mb-20">
-          <div className="text-center mb-10">
-            <p className="text-sm font-semibold tracking-[0.2em] uppercase text-sand-300 mb-3">
-              Expand Your Group
-            </p>
-            <h3 className="font-display text-2xl sm:text-3xl font-bold text-navy-950 mb-3">
-              Budget-Friendly Additions
-            </h3>
-            <p className="mx-auto max-w-2xl text-navy-950/60">
-              Two additional private rooms on the north side of the property.
-              Perfect for support staff, overflow guests, or budget-conscious
-              travelers. Pool access available with an upcharge.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {BUDGET_VILLAS.map((v) => (
-              <div
-                key={v.name}
-                className="group rounded-2xl bg-white border border-sand-200/60 overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={v.image}
-                    alt={v.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 640px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/30 to-transparent pointer-events-none" />
-                  <div className="absolute top-3 left-3 bg-sand-300/90 backdrop-blur-sm text-navy-950 text-xs font-semibold px-3 py-1 rounded-full">
-                    Budget Option
-                  </div>
-                </div>
-                <div className="p-5">
-                  <h4 className="font-display text-lg font-bold text-navy-950 mb-2">
-                    {v.name}
-                  </h4>
-                  <p className="text-sm text-navy-950/60 leading-relaxed">
-                    {v.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* -------------------------------------------------------- */}
         {/*  Why Book the Entire Complex — Features Grid             */}
         {/* -------------------------------------------------------- */}
         <div className="mb-16">
@@ -647,7 +582,7 @@ export default function FeaturedProperty() {
               Why Book the Entire Complex
             </h3>
             <p className="mx-auto max-w-2xl text-navy-950/60">
-              When you reserve all six villas, SerenitySpaces becomes your
+              When you reserve all four villas, SerenitySpaces becomes your
               private compound. Here is what sets the full complex apart.
             </p>
           </div>
@@ -656,8 +591,8 @@ export default function FeaturedProperty() {
             {[
               {
                 icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
-                title: "Up to 19 Guests",
-                desc: "Accommodate your entire team across six villas, each with private sleeping quarters, A/C, and dedicated space.",
+                title: "Up to 14 Guests",
+                desc: "Accommodate your entire team across four interconnected villas, each with private sleeping quarters, A/C, and dedicated space.",
               },
               {
                 icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
@@ -677,7 +612,7 @@ export default function FeaturedProperty() {
               {
                 icon: "M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4",
                 title: "Flexible Configurations",
-                desc: "Book a single villa for a couple, the four main villas for a corporate retreat, or all six for a full-scale event.",
+                desc: "Book a single villa for a couple, or all four villas for a corporate retreat. Additional overflow space available on request.",
               },
               {
                 icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
@@ -724,7 +659,7 @@ export default function FeaturedProperty() {
           </h3>
           <p className="mx-auto max-w-2xl text-white/70 mb-8 leading-relaxed">
             Whether you need a single villa for a quiet getaway or the entire
-            six-villa compound for your next corporate retreat, our team is
+            four-villa compound for your next corporate retreat, our team is
             ready to help you plan the perfect stay in Grand Bahama.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
