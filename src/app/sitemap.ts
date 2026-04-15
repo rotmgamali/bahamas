@@ -5,6 +5,28 @@ const SITE_URL = "https://www.firmconnectus.net";
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
+  const sections = [
+    "about",
+    "destination",
+    "featured-property",
+    "properties",
+    "events",
+    "florida",
+    "amenities",
+    "faq",
+    "contact",
+  ];
+
+  const mdEndpoints = [
+    "/llms.txt",
+    "/llms-full.txt",
+    "/md/property.md",
+    "/md/pricing.md",
+    "/md/flights.md",
+    "/md/faq.md",
+    "/md/facts.md",
+  ];
+
   return [
     {
       url: SITE_URL,
@@ -12,55 +34,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1.0,
     },
-    // Anchor-linked sections — included as discrete URLs so they can be
-    // surfaced in Google's site-link carousel.
-    {
-      url: `${SITE_URL}/#about`,
+    ...sections.map((id) => ({
+      url: `${SITE_URL}/#${id}`,
       lastModified,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/#featured-property`,
+      changeFrequency: "monthly" as const,
+      priority: id === "featured-property" ? 0.9 : 0.7,
+    })),
+    // Structured text endpoints — help LLMs discover the markdown exports.
+    ...mdEndpoints.map((path) => ({
+      url: `${SITE_URL}${path}`,
       lastModified,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/#properties`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/#events`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/#destination`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/#amenities`,
-      lastModified,
-      changeFrequency: "monthly",
+      changeFrequency: "monthly" as const,
       priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/#faq`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/#contact`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+    })),
   ];
 }
