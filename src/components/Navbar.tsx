@@ -2,10 +2,10 @@
 import { useState, useEffect } from "react";
 
 const NAV_LINKS = [
-  { label: "About", href: "#about" },
-  { label: "Properties", href: "#properties" },
-  { label: "Corporate Events", href: "#events" },
-  { label: "Amenities", href: "#amenities" },
+  { label: "Property", href: "#featured-property" },
+  { label: "Events", href: "#events" },
+  { label: "For Florida", href: "#florida" },
+  { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
 

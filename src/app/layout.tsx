@@ -13,36 +13,74 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://www.firmconnectus.net";
+
 export const metadata: Metadata = {
-  title: "SerenitySpaces Bahamas | Exclusive Corporate Event Venues in Freeport",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default:
+      "SerenitySpaces Bahamas | Corporate Event Venue Near Florida — Freeport, Grand Bahama",
+    template: "%s | SerenitySpaces Bahamas",
+  },
   description:
-    "Host your next corporate event at our exclusive beachside villas in Freeport, Grand Bahama Island. Premium venues with corporate discounts, dedicated coordination, and personalized service.",
+    "Private 4-villa corporate event venue in Freeport, Grand Bahama — just 35 minutes by direct flight from Fort Lauderdale (FLL) and Miami (MIA). Closer than driving to the Florida Keys. Book individual villas from $150/night or the entire complex from $650/night. Ideal for Florida-based companies hosting retreats, offsites, and client entertainment in the Caribbean.",
   keywords: [
+    // Florida-focused
+    "corporate event venue near Florida",
+    "corporate retreat near Miami",
+    "corporate retreat near Fort Lauderdale",
+    "team offsite venue Florida",
+    "Florida company retreat Bahamas",
+    "alternative to Florida Keys corporate retreat",
+    "close to Miami corporate venue",
+    "quick corporate getaway from Florida",
+    // Destination
     "corporate events Bahamas",
-    "Bahamas venue rental",
-    "beachside villa corporate retreat",
-    "Freeport event venue",
-    "Grand Bahama corporate events",
-    "corporate retreat Bahamas",
-    "team building Bahamas",
-    "executive offsite Bahamas",
-    "corporate event planning Caribbean",
-    "private villa Bahamas",
+    "Freeport Grand Bahama event venue",
+    "Grand Bahama Island corporate retreat",
+    "Bahamas villa rental corporate",
+    "private villa corporate retreat Caribbean",
+    // Use-case
+    "executive offsite Caribbean",
+    "team building retreat Bahamas",
+    "client entertainment Caribbean villa",
+    "annual company conference Bahamas",
+    "board retreat Caribbean",
+    // Property
+    "SerenitySpaces Bahamas",
+    "Agave Coconut Lime Pina villa Freeport",
+    "4 villa complex Freeport Bahamas",
+    "beachside villa complex corporate rental",
   ],
   authors: [{ name: "SerenitySpaces Bahamas" }],
+  category: "Corporate Event Venue",
   openGraph: {
-    title: "SerenitySpaces Bahamas | Exclusive Corporate Event Venues",
+    title:
+      "SerenitySpaces Bahamas | Corporate Event Venue 35 Minutes from Florida",
     description:
-      "Exclusive beachside villas in Freeport, Grand Bahama Island. Host corporate retreats, team-building events, and executive offsites with premium amenities and corporate discounts.",
+      "Private 4-villa event complex in Freeport, Grand Bahama. Direct 35-min flights from Fort Lauderdale and Miami. Book individual villas or the whole compound for up to 14 guests. Corporate group pricing and long-stay discounts available.",
+    url: SITE_URL,
     type: "website",
     locale: "en_US",
     siteName: "SerenitySpaces Bahamas",
+    images: [
+      {
+        url: `${SITE_URL}/images/firmconnect/Aeerial__from_East_IMG-20240225-WA0023-CU5chfyA.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Aerial view of the SerenitySpaces villa complex in Freeport, Grand Bahama Island",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SerenitySpaces Bahamas | Corporate Event Venues",
+    title:
+      "SerenitySpaces Bahamas | Corporate Venue 35 Min from Florida",
     description:
-      "Exclusive beachside villas for corporate events in Freeport, Grand Bahama Island. Premium venues with corporate discounts.",
+      "Private 4-villa event complex in Freeport, Grand Bahama. Direct flights from FLL and MIA. Book for corporate retreats, team offsites, and client entertainment.",
+    images: [
+      `${SITE_URL}/images/firmconnect/Aeerial__from_East_IMG-20240225-WA0023-CU5chfyA.jpg`,
+    ],
   },
   robots: {
     index: true,
@@ -57,6 +95,18 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "/",
+  },
+  other: {
+    // Geo targeting meta tags — help search engines associate the page with
+    // both the physical venue location and the service area (Florida).
+    "geo.region": "BS-GB",
+    "geo.placename": "Freeport, Grand Bahama Island, Bahamas",
+    "geo.position": "26.5072;-78.64857",
+    ICBM: "26.5072, -78.64857",
+    // Target audience geo
+    "target-audience-region": "US-FL",
+    "target-audience-description":
+      "Florida-based corporate event planners and executives",
   },
 };
 
