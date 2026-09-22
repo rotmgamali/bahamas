@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, useEffect, type FormEvent } from "react";
 
 interface FormData {
   name: string;
@@ -26,6 +26,21 @@ const initialFormData: FormData = {
 
 export default function Contact() {
   const [formData, setFormData] = useState<FormData>(initialFormData);
+
+  // The hero's two buttons link to ?type=vacation or ?type=corporate-retreat.
+  // Pre-select that choice so a family never has to hunt for their option in
+  // what used to be a list of purely corporate event types.
+  useEffect(() => {
+    const type = new URLSearchParams(window.location.search).get("type");
+    const allowed = [
+      "vacation", "group-getaway", "reunion", "corporate-retreat",
+      "team-building", "conference", "incentive-trip", "product-launch",
+      "executive-offsite", "other",
+    ];
+    if (type && allowed.includes(type)) {
+      setFormData((d) => ({ ...d, eventType: type }));
+    }
+  }, []);
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error" | "fallback"
   >("idle");

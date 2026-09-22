@@ -23,33 +23,37 @@ export default function Hero() {
           Freeport &middot; Grand Bahama Island &middot; The Bahamas
         </p>
 
+        {/* Serves two audiences on purpose. The page title and structured data
+            still lead with corporate events for the Florida search work; the
+            visible hero now also speaks to a family arriving from a newspaper
+            ad, who used to land on "Host Your Next Corporate Event" and leave. */}
         <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-tight mb-6">
-          Host Your Next
+          Your Private
           <br />
-          <span className="text-gold-400">Corporate Event</span>
+          <span className="text-gold-400">Villa Compound</span>
           <br />
-          in Paradise
+          in the Bahamas
         </h1>
 
         <p className="mx-auto max-w-2xl text-lg sm:text-xl text-white/80 mb-10 leading-relaxed">
-          A private 4-villa complex in Freeport, Grand Bahama — just 35
-          minutes from Fort Lauderdale. Book individual villas from $150/night
-          or the entire complex from $650/night. Steps from Coral Beach with
-          pool, full kitchen, and long-stay corporate discounts.
+          Four villas, one pool, room for fourteen — steps from Coral Beach in
+          Freeport, Grand Bahama, and just 35 minutes from Fort Lauderdale.
+          A family getaway or a company retreat. Villas from $150 a night, or
+          take the whole compound from $650.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="#contact"
+            href="?type=vacation#contact"
             className="rounded-full bg-gold-400 px-10 py-4 text-base font-semibold text-navy-950 hover:bg-gold-500 transition-all hover:scale-105 shadow-lg"
           >
-            Plan Your Event
+            Plan a Family Stay
           </a>
           <a
-            href="#featured-property"
+            href="?type=corporate-retreat#contact"
             className="rounded-full border-2 border-white/40 px-10 py-4 text-base font-semibold text-white hover:border-gold-400 hover:text-gold-400 transition-all"
           >
-            Explore the Villa Complex
+            Plan a Corporate Retreat
           </a>
         </div>
 
@@ -71,7 +75,7 @@ export default function Hero() {
             <svg className="h-5 w-5 text-gold-400" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M5 2a2 2 0 00-2 2v14l3.5-2 3.5 2 3.5-2 3.5 2V4a2 2 0 00-2-2H5zm4.707 3.707a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L8.414 9H10a3 3 0 013 3v1a1 1 0 102 0v-1a5 5 0 00-5-5H8.414l1.293-1.293z" clipRule="evenodd" />
             </svg>
-            Corporate Group Discounts
+            Sleeps Fourteen
           </div>
         </div>
       </div>
