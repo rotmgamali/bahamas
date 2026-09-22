@@ -227,7 +227,10 @@ export default function Contact() {
                       onChange={handleChange}
                       className={inputClasses}
                     >
-                      <option value="">Event Type *</option>
+                      <option value="">What's the trip? *</option>
+                      <option value="vacation">Family Vacation</option>
+                      <option value="group-getaway">Friends / Group Getaway</option>
+                      <option value="reunion">Family Reunion</option>
                       <option value="corporate-retreat">Corporate Retreat</option>
                       <option value="team-building">Team Building</option>
                       <option value="conference">Conference / Meeting</option>
@@ -242,9 +245,10 @@ export default function Contact() {
                       onChange={handleChange}
                       className={inputClasses}
                     >
-                      <option value="">Estimated Guests</option>
-                      <option value="1-10">1 – 10 guests</option>
-                      <option value="11-25">11 – 25 guests</option>
+                      <option value="">How many guests?</option>
+                      <option value="1-4">1 – 4 guests</option>
+                      <option value="5-10">5 – 10 guests</option>
+                      <option value="11-14">11 – 14 guests (whole complex)</option>
                       <option value="26-50">26 – 50 guests</option>
                       <option value="50+">50+ guests</option>
                     </select>

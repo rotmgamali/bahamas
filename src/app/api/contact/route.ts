@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
 
 interface ContactFormData {
   name: string;
@@ -13,6 +12,9 @@ interface ContactFormData {
 }
 
 const EVENT_TYPE_LABELS: Record<string, string> = {
+  vacation: "Family Vacation",
+  "group-getaway": "Friends / Group Getaway",
+  reunion: "Family Reunion",
   "corporate-retreat": "Corporate Retreat",
   "team-building": "Team Building",
   conference: "Conference / Meeting",
@@ -49,7 +51,7 @@ export async function POST(request: Request) {
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background: #0c2a3a; color: white; padding: 24px; border-radius: 8px 8px 0 0;">
-          <h1 style="margin: 0; font-size: 24px;">New Event Inquiry</h1>
+          <h1 style="margin: 0; font-size: 24px;">New Inquiry</h1>
           <p style="margin: 8px 0 0; color: #d4a843;">SerenitySpaces Bahamas</p>
         </div>
         <div style="padding: 24px; border: 1px solid #e8d0ad; border-top: none; border-radius: 0 0 8px 8px;">
@@ -89,7 +91,7 @@ export async function POST(request: Request) {
     `;
 
     const textContent = `
-New Event Inquiry - SerenitySpaces Bahamas
+New Inquiry - SerenitySpaces Bahamas
 ==========================================
 
 Contact Details:
@@ -108,48 +110,71 @@ ${body.message}
     `.trim();
 
     // Build mailto fallback URL for use if SMTP is not configured or fails
-    const subject = `New Event Inquiry from ${body.name}${body.company ? ` (${body.company})` : ""} - ${eventTypeLabel}`;
+    const subject = `New Inquiry from ${body.name}${body.company ? ` (${body.company})` : ""} - ${eventTypeLabel}`;
     const mailtoUrl = `mailto:andrew@web4guru.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(textContent)}`;
 
-    // Check if SMTP credentials are configured
-    if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+    // ── Delivery ──────────────────────────────────────────────────────────
+    // Sent through Resend's HTTP API on port 443, NOT SMTP.
+    //
+    // This form lost every inquiry from launch in April 2026 until September:
+    // no mail credentials were ever set, so it always fell back to a mailto:
+    // link, which does nothing on most phones. When SMTP credentials were then
+    // added, Railway turned out to block outbound SMTP ports, so the connection
+    // hung for two minutes and the visitor's form spun. HTTPS cannot be blocked
+    // that way. Do not go back to SMTP on this host.
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      console.error("RESEND_API_KEY is not set; inquiry not delivered.");
       return NextResponse.json({
         success: false,
         fallback: true,
         mailtoUrl,
-        error: "Email service is not configured yet. Please use the link below to send your inquiry directly.",
+        error: "Please use the link below to send your inquiry directly.",
       });
     }
 
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 10_000);
     try {
-      const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST || "smtp.gmail.com",
-        port: parseInt(process.env.SMTP_PORT || "587"),
-        secure: process.env.SMTP_SECURE === "true",
-        auth: {
-          user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASS,
+      const res = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
         },
+        body: JSON.stringify({
+          from: process.env.MAIL_FROM || "SerenitySpaces Bahamas <andrew@web4guru.com>",
+          to: [process.env.MAIL_TO || "andrew@web4guru.com"],
+          reply_to: body.email,
+          subject,
+          text: textContent,
+          html: htmlContent,
+        }),
+        signal: controller.signal,
       });
 
-      await transporter.sendMail({
-        from: process.env.SMTP_FROM || process.env.SMTP_USER,
-        to: "andrew@web4guru.com",
-        replyTo: body.email,
-        subject,
-        text: textContent,
-        html: htmlContent,
-      });
+      if (!res.ok) {
+        const detail = await res.text();
+        console.error(`Resend rejected the inquiry (${res.status}):`, detail);
+        return NextResponse.json({
+          success: false,
+          fallback: true,
+          mailtoUrl,
+          error: "Unable to send automatically. Please use the link below.",
+        });
+      }
 
       return NextResponse.json({ success: true });
-    } catch (smtpError) {
-      console.error("SMTP send failed, returning mailto fallback:", smtpError);
+    } catch (sendError) {
+      console.error("Inquiry delivery failed:", sendError);
       return NextResponse.json({
         success: false,
         fallback: true,
         mailtoUrl,
-        error: "Unable to send automatically. Please use the link below to send your inquiry via email.",
+        error: "Unable to send automatically. Please use the link below.",
       });
+    } finally {
+      clearTimeout(timer);
     }
   } catch (error) {
     console.error("Contact form error:", error);
