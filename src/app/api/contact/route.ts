@@ -8,7 +8,28 @@ interface ContactFormData {
   eventType: string;
   guestCount: string;
   preferredDates: string;
+  checkIn: string;
+  checkOut: string;
+  villa: string;
   message: string;
+}
+
+const VILLA_LABELS: Record<string, string> = {
+  agave: "Agave Villa",
+  coconut: "Coconut Villa",
+  lime: "Lime Villa",
+  pina: "Pina Villa",
+  "whole-complex": "The whole complex (all four)",
+  unsure: "Not sure yet",
+};
+
+/** Nights between two ISO dates, or null if either is missing or nonsensical. */
+function nightsBetween(a: string, b: string): number | null {
+  if (!a || !b) return null;
+  const inD = new Date(a), outD = new Date(b);
+  if (Number.isNaN(+inD) || Number.isNaN(+outD)) return null;
+  const n = Math.round((+outD - +inD) / 86_400_000);
+  return n > 0 ? n : null;
 }
 
 const EVENT_TYPE_LABELS: Record<string, string> = {
@@ -47,6 +68,11 @@ export async function POST(request: Request) {
 
     // Build email content
     const eventTypeLabel = EVENT_TYPE_LABELS[body.eventType] || body.eventType;
+    const villaLabel = VILLA_LABELS[body.villa] || body.villa || "";
+    const nights = nightsBetween(body.checkIn, body.checkOut);
+    const stay = nights
+      ? `${body.checkIn} to ${body.checkOut} (${nights} night${nights === 1 ? "" : "s"})`
+      : body.preferredDates || "";
 
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -76,7 +102,8 @@ export async function POST(request: Request) {
               <td style="padding: 8px 0; font-weight: 600;">${escapeHtml(eventTypeLabel)}</td>
             </tr>
             ${body.guestCount ? `<tr><td style="padding: 8px 0; color: #666;">Guests:</td><td style="padding: 8px 0;">${escapeHtml(body.guestCount)}</td></tr>` : ""}
-            ${body.preferredDates ? `<tr><td style="padding: 8px 0; color: #666;">Preferred Dates:</td><td style="padding: 8px 0;">${escapeHtml(body.preferredDates)}</td></tr>` : ""}
+            ${stay ? `<tr><td style="padding: 8px 0; color: #666;">Dates:</td><td style="padding: 8px 0; font-weight: 600;">${escapeHtml(stay)}</td></tr>` : ""}
+            ${villaLabel ? `<tr><td style="padding: 8px 0; color: #666;">Villa:</td><td style="padding: 8px 0;">${escapeHtml(villaLabel)}</td></tr>` : ""}
           </table>
 
           <h2 style="color: #0c2a3a; font-size: 18px;">Message</h2>
@@ -103,7 +130,8 @@ ${body.phone ? `- Phone: ${body.phone}` : ""}
 Event Details:
 - Event Type: ${eventTypeLabel}
 ${body.guestCount ? `- Estimated Guests: ${body.guestCount}` : ""}
-${body.preferredDates ? `- Preferred Dates: ${body.preferredDates}` : ""}
+${stay ? `- Dates: ${stay}` : ""}
+${villaLabel ? `- Villa: ${villaLabel}` : ""}
 
 Message:
 ${body.message}

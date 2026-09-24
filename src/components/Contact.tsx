@@ -10,6 +10,9 @@ interface FormData {
   eventType: string;
   guestCount: string;
   preferredDates: string;
+  checkIn: string;
+  checkOut: string;
+  villa: string;
   message: string;
 }
 
@@ -21,6 +24,9 @@ const initialFormData: FormData = {
   eventType: "",
   guestCount: "",
   preferredDates: "",
+  checkIn: "",
+  checkOut: "",
+  villa: "",
   message: "",
 };
 
@@ -268,14 +274,46 @@ export default function Contact() {
                       <option value="50+">50+ guests</option>
                     </select>
                   </div>
-                  <input
-                    type="text"
-                    name="preferredDates"
-                    placeholder="Preferred Dates (e.g., March 15-18, 2026)"
-                    value={formData.preferredDates}
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <label className="block">
+                      <span className="mb-1 block text-xs font-semibold uppercase tracking-wide text-navy-950/50">
+                        Arriving
+                      </span>
+                      <input
+                        type="date"
+                        name="checkIn"
+                        value={formData.checkIn}
+                        onChange={handleChange}
+                        className={inputClasses}
+                      />
+                    </label>
+                    <label className="block">
+                      <span className="mb-1 block text-xs font-semibold uppercase tracking-wide text-navy-950/50">
+                        Leaving
+                      </span>
+                      <input
+                        type="date"
+                        name="checkOut"
+                        value={formData.checkOut}
+                        onChange={handleChange}
+                        className={inputClasses}
+                      />
+                    </label>
+                  </div>
+                  <select
+                    name="villa"
+                    value={formData.villa}
                     onChange={handleChange}
                     className={inputClasses}
-                  />
+                  >
+                    <option value="">Which villa? (we can advise)</option>
+                    <option value="agave">Agave</option>
+                    <option value="coconut">Coconut</option>
+                    <option value="lime">Lime</option>
+                    <option value="pina">Pina</option>
+                    <option value="whole-complex">The whole complex — all four</option>
+                    <option value="unsure">Not sure yet</option>
+                  </select>
                   <textarea
                     name="message"
                     required
